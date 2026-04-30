@@ -8,6 +8,6 @@ import org.springframework.data.repository.Repository;
 
 import java.util.List;
 
-public interface ExpensesRepository extends Repository<Expenses, Long> {
+public interface ExpensesRepository extends JpaRepository<Expenses, Long> {
     List<Expenses> findByGroup(Group group);
 }

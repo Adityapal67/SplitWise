@@ -27,7 +27,7 @@ public class Expenses {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "paid_by",nullable = false)
-    private User user;
+    private User paidBy;
 
     @Column(nullable = false,precision = 10,scale = 2)
     private BigDecimal amount;
