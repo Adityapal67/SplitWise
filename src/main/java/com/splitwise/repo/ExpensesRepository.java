@@ -10,4 +10,6 @@ import java.util.List;
 
 public interface ExpensesRepository extends JpaRepository<Expenses, Long> {
     List<Expenses> findByGroup(Group group);
+
+    List<Expenses> findBypaidBy(User currentUser);
 }

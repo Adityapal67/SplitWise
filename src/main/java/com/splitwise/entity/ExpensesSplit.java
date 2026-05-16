@@ -19,7 +19,7 @@ public class ExpensesSplit {
     private Long id;
 
     @Column(name = "amount_owed",nullable = false,precision = 10,scale = 2)
-    private BigDecimal amountOwned;
+    private BigDecimal amountOwed;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "expense_id",nullable = false)
