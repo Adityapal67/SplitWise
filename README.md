@@ -109,4 +109,4 @@ http://localhost:8080/swagger-ui.html
 ## Author
 
 **Aditya** — B.Tech CSE student passionate about backend systems
-[LinkedIn](https://linkedin.com/in/yourprofile) · [GitHub](https://github.com/yourusername)
+[LinkedIn](www.linkedin.com/in/aditya-pal-5143442a4) · [GitHub]([https://github.com/Adityapal67]
