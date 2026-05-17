@@ -88,7 +88,7 @@ Time complexity: O(n log n) | Space: O(n)
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/splitwise.git
+git clone https://github.com/Adityapal67/splitwise.git
 cd splitwise
 
 # Set up MySQL
