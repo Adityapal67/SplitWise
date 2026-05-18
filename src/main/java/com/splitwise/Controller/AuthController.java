@@ -51,11 +51,12 @@ public ResponseEntity<?> register(@Valid @RequestBody RegisterRequest request){
 @PostMapping("/login")
 public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request) {
 
-   User user = userRepository.findByEmail(request.getEmail()).orElseThrow();
+   User user = userRepository.findByEmail(request.getEmail()).orElse(null);
+    if (user == null) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body("Invalid email or password");
+    }
 
-   if(user == null){
-       return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email");
-   }
 
     if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)

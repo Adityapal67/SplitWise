@@ -41,7 +41,7 @@ public class GroupController {
     public ResponseEntity<String> removeMember(
         @PathVariable Long id,
         @PathVariable Long userId) {
-         service.deleteMember(id, userId);
+         service.deleteMember(userId , id);
          return ResponseEntity.ok("Member removed successfully");
     }
 

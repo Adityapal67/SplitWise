@@ -36,8 +36,9 @@ public class JwtFilter extends OncePerRequestFilter {
             return;
         }
         String token = authHeader.split("Bearer ")[1];
-        String email = jwtUtil.extractEmail(token);
+
         try {
+            String email = jwtUtil.extractEmail(token);
             if (jwtUtil.isTokenValid(token) && SecurityContextHolder.getContext().getAuthentication() == null) {
                 org.springframework.security.core.userdetails.UserDetails userDetails
                         = userDetailService.loadUserByUsername(email);

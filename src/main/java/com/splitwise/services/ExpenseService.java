@@ -172,7 +172,7 @@ public class ExpenseService {
                     User user = userRepository.findById(details.getUserId()).
                             orElseThrow(()-> new RuntimeException(
                                     "User not found " + details.getUserId()));
-
+                    validateGroupMember(group, user);
                     expensesSplits.add(ExpensesSplit.builder()
                             .expenses(expenses)
                             .user(user)
@@ -199,6 +199,7 @@ public class ExpenseService {
                     User user = userRepository.findById(details.getUserId()).
                             orElseThrow(()-> new RuntimeException(
                                     "User not found " + details.getUserId()));
+                    validateGroupMember(group, user);
                     BigDecimal owed = request.getAmount()
                                     .multiply(details.getValue())
                                .divide(new BigDecimal("100"),2,RoundingMode.HALF_UP);
@@ -235,6 +236,11 @@ public class ExpenseService {
                 .createdAt(expenses.getCreatedAt())
                 .splits(splitDetails)
                 .build();
+    }
+    private void validateGroupMember(Group group, User user) {
+        if (!groupMemberRepository.existsByGroupAndUser(group, user)) {
+            throw new RuntimeException(user.getName() + " is not a member of this group");
+        }
     }
 
 }
